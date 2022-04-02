@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TOP-cv-application/static/css/main.5bea799a.css",
+    "main.js": "/TOP-cv-application/static/js/main.d1e3e884.js",
+    "index.html": "/TOP-cv-application/index.html",
+    "main.5bea799a.css.map": "/TOP-cv-application/static/css/main.5bea799a.css.map",
+    "main.d1e3e884.js.map": "/TOP-cv-application/static/js/main.d1e3e884.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5bea799a.css",
+    "static/js/main.d1e3e884.js"
+  ]
+}
