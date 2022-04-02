@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import Personalia from "./CVsections/Personalia";
+import Form from "./Form";
+import Preview from "./Preview";
 
 class Main extends Component {
   render() {
     return (
       <main>
-        <form>
-          <Personalia />
-          <button type="submit">Validate</button>
-        </form>
+        <Form />
+        <Preview />
       </main>
     );
   }

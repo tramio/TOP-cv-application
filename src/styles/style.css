@@ -4,9 +4,21 @@
   --font-main: 'Karla', sans-serif;
   --font-extra: 'Space Mono', monospace;
 }
-
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   font-family: var(--font-main);
+}
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root {
+  height: 100%;
 }
 h1 {
   font-family: var(--font-extra);
@@ -17,4 +29,12 @@ li {
 }
 input {
   width: 20rem;
+}
+#preview {
+  height: 400px;
+  width: 500px;
+  border: 5px solid lavender;
+}
+form {
+  height: 400px;
 }

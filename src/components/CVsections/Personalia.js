@@ -9,8 +9,8 @@ class Personalia extends Component {
       firstName: "",
       lastName: "",
       postalAddress: "",
-      phone: "",
       email: "",
+      phone: "",
     }
   }
   handleFirstNameChange = (value) => {
@@ -28,14 +28,14 @@ class Personalia extends Component {
       postalAddress: value,
     });
   }
-  handlePhoneChange = (value) => {
-    this.setState({
-      phone: value,
-    });
-  }
   handleEmailChange = (value) => {
     this.setState({
       email: value,
+    });
+  }
+  handlePhoneChange = (value) => {
+    this.setState({
+      phone: value,
     });
   }
 
@@ -70,15 +70,6 @@ class Personalia extends Component {
             placeholder="123 Example Lane, 12345 New York, USA"
             onChange={this.handlePostalAddressChange}
             value={this.state.postalAddress}
-          />          
-          <Field
-            inputId="phone"
-            actualLabel="Phone number"
-            type="text"
-            name="phone"
-            placeholder="+123456789"
-            onChange={this.handlePhoneChange}
-            value={this.state.phone}
           />
           <Field
             inputId="email"
@@ -88,6 +79,15 @@ class Personalia extends Component {
             placeholder="mail@example.com"
             onChange={this.handleEmailChange}
             value={this.state.email}
+          />               
+          <Field
+            inputId="phone"
+            actualLabel="Phone number"
+            type="text"
+            name="phone"
+            placeholder="+123456789"
+            onChange={this.handlePhoneChange}
+            value={this.state.phone}
           />
         </ul>
       </fieldset>
