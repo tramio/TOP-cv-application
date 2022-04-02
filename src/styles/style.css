@@ -11,3 +11,10 @@ body {
 h1 {
   font-family: var(--font-extra);
 }
+li {
+  display: flex;
+  flex-flow: column;
+}
+input {
+  width: 20rem;
+}
