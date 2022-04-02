@@ -2,6 +2,20 @@ import React, { Component } from "react";
 import Field from "../CVelements/Field";
 
 class Personalia extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      firstName: "",
+    }
+  }
+
+  handleFirstNameChange = (value) => {
+    this.setState({
+      firstName: value,
+    });
+  }
+
   render() {
     return (
       <fieldset id="personalia">
@@ -13,6 +27,8 @@ class Personalia extends Component {
             type="text"
             name="firstName"
             placeholder="Elliot"
+            onChange={this.handleFirstNameChange}
+            value={this.state.firstName}
           />
           <Field
             inputId="lastName"
