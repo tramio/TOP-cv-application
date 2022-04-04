@@ -1,16 +1,45 @@
 import React, { Component } from "react";
-import Personalia from "./CVsections/Personalia";
+import Field from "./CVelements/Field";
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
+      firstName: "",
+      lastName: "",
+      postalAddress: "",
+      email: "",
+      phone: "",
       isSubmitted: "",
     }
   }
-
-  handleSubmit = (e) => {
+  handleFirstNameChange = (value) => {
+    this.setState({
+      firstName: value,
+    });
+  }
+  handleLastNameChange = (value) => {
+    this.setState({
+      lastName: value,
+    });
+  }
+  handlePostalAddressChange = (value) => {
+    this.setState({
+      postalAddress: value,
+    });
+  }
+  handleEmailChange = (value) => {
+    this.setState({
+      email: value,
+    });
+  }
+  handlePhoneChange = (value) => {
+    this.setState({
+      phone: value,
+    });
+  }
+  handleFormSubmission = (e) => {
     e.preventDefault();
     this.setState({
       isSubmitted: "yes",
@@ -19,8 +48,57 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <Personalia />
+      <form onSubmit={this.handleFormSubmission}>
+        <fieldset id="personalia">
+          <h1>Personalia</h1>
+          <ul>
+            <Field
+              inputId="firstName"
+              actualLabel="First name"
+              type="text"
+              name="firstName"
+              placeholder="Elliot"
+              onChange={this.handleFirstNameChange}
+              value={this.state.firstName}
+            />
+            <Field
+              inputId="lastName"
+              actualLabel="Last name"
+              type="text"
+              name="lastName"
+              placeholder="Alderson"
+              onChange={this.handleLastNameChange}
+              value={this.state.lastName}
+            />
+            <Field
+              inputId="postalAddress"
+              actualLabel="Address"
+              type="text"
+              name="postalAddress"
+              placeholder="123 Example Lane, 12345 New York, USA"
+              onChange={this.handlePostalAddressChange}
+              value={this.state.postalAddress}
+            />
+            <Field
+              inputId="email"
+              actualLabel="Email address"
+              type="text"
+              name="email"
+              placeholder="mail@example.com"
+              onChange={this.handleEmailChange}
+              value={this.state.email}
+            />               
+            <Field
+              inputId="phone"
+              actualLabel="Phone number"
+              type="text"
+              name="phone"
+              placeholder="+123456789"
+              onChange={this.handlePhoneChange}
+              value={this.state.phone}
+            />
+          </ul>
+        </fieldset>
         <button type="submit">Submit</button>
       </form>
     );
