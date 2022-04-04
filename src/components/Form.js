@@ -11,6 +11,7 @@ class Form extends Component {
       postalAddress: "",
       email: "",
       phone: "",
+      data: {},
       isSubmitted: "",
     }
   }
@@ -39,16 +40,27 @@ class Form extends Component {
       phone: value,
     });
   }
-  handleFormSubmission = (e) => {
+  aggregateData = (e) => {
     e.preventDefault();
+    let formData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      postalAddress: this.state.postalAddress,
+      email: this.state.email,
+      phone: this.state.phone,
+    };
     this.setState({
-      isSubmitted: "yes",
+      data: formData,
     })
+  }
+  handleSubmission = (e) => {
+    this.aggregateData(e);
+    this.props.onSubmit(this.state.data);
   }
 
   render() {
     return (
-      <form onSubmit={this.handleFormSubmission}>
+      <form onSubmit={this.handleSubmission}>
         <fieldset id="personalia">
           <h1>Personalia</h1>
           <ul>
