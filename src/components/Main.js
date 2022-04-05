@@ -21,7 +21,7 @@ class Main extends Component {
     return (
       <main>
         <Form onSubmit={this.handleFormSubmission} />
-        <Preview />
+        <Preview data={this.state.data}/>
       </main>
     );
   }
