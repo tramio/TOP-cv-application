@@ -57,8 +57,8 @@ class Form extends Component {
   render() {
     return (
       <form onSubmit={this.handleFormSubmission}>
-        <fieldset id="personalia">
-          <h1>Personalia</h1>
+        <fieldset id="form-personalia">
+          <h1>Let's build a resume!</h1>
           <ul>
             <Field
               inputId="firstName"
