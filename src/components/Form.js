@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Field from "./CVelements/Field";
+import ExperienceSubform from "./ExperienceSubform";
 
 class Form extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Form extends Component {
       phone: "",
       data: {},
       isSubmitted: "",
+      numExperienceSubforms: 0,
     }
   }
   handleFirstNameChange = (value) => {
@@ -54,11 +56,23 @@ class Form extends Component {
     }, () => this.props.onSubmit(this.state.data));
   }
 
+  addExperience = () => {
+    this.setState({
+      numExperienceSubforms: this.state.numExperienceSubforms + 1
+    });
+  }
   render() {
+    const experienceSubforms = [];
+
+    for (let i = 0; i < this.state.numExperienceSubforms; i++) {
+      experienceSubforms.push(<ExperienceSubform number={i} key={i} />);
+    };
+
     return (
       <form onSubmit={this.handleFormSubmission}>
+        <h1>Let's build a resume!</h1>
         <fieldset id="form-personalia">
-          <h1>Let's build a resume!</h1>
+          <legend>Personalia</legend>
           <ul>
             <Field
               inputId="firstName"
@@ -106,6 +120,12 @@ class Form extends Component {
               value={this.state.phone}
             />
           </ul>
+        </fieldset>
+        <fieldset id="form-experience">
+        <legend>Professional experience</legend>
+          {experienceSubforms}
+          <button id="add-experience-btn" type="button" onClick={this.addExperience}>
+          Add</button>
         </fieldset>
         <button type="submit">Submit</button>
       </form>

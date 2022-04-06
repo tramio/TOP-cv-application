@@ -23,7 +23,7 @@ class Preview extends Component {
         <div id="experience">
           <h1>Experience</h1>
 
-          <div className="station">
+          <div className="station-preview">
             <div className="station-date">
               <p>Since 06/2021</p>
             </div>
@@ -38,7 +38,7 @@ class Preview extends Component {
             </div>
           </div>
 
-          <div className="station">
+          <div className="station-preview">
             <div className="station-date">
               <p>10/2018</p>
               <p>06/2021</p>
