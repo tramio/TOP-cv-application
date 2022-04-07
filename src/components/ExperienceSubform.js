@@ -12,32 +12,45 @@ class ExperienceSubform extends Component {
       organization: "",
       position: "",
       description: "",
+      experience: {},
     };
+  }
+  createExperience = () => {
+    let formData = {
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      organization: this.state.organization,
+      position: this.state.position,
+      description: this.state.description,
+    };
+    this.setState({
+      experience: formData,
+    });
   }
   handleStartDateChange = (value) => {
     this.setState({
       startDate: value,
-    });
+    }, this.createExperience);
   }
   handleEndDateChange = (value) => {
     this.setState({
       endDate: value,
-    });
+    }, this.createExperience);
   }
   handleOrganizationChange = (value) => {
     this.setState({
       organization: value,
-    });
+    }, this.createExperience);
   }
   handlePositionChange = (value) => {
     this.setState({
       position: value,
-    });
+    }, this.createExperience);
   }
   handleDescriptionChange = (value) => {
     this.setState({
       description: value,
-    });
+    }, this.createExperience);
   }
   render() {
     return (      
