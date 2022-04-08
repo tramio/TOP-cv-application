@@ -15,6 +15,7 @@ class Form extends Component {
       data: {},
       isSubmitted: "",
       numExperienceSubforms: 0,
+      experiences: [],
     }
   }
   handleFirstNameChange = (value) => {
@@ -55,17 +56,30 @@ class Form extends Component {
       data: formData,
     }, () => this.props.onSubmit(this.state.data));
   }
-
   addExperience = () => {
     this.setState({
       numExperienceSubforms: this.state.numExperienceSubforms + 1
     });
   }
+  handleExperienceSubmission = (experience, key) => {
+    let newArray = this.state.experiences.slice();
+    newArray[key] = experience;
+    this.setState({
+      experiences: newArray,
+    });
+  }
+  
   render() {
     const experienceSubforms = [];
 
     for (let i = 0; i < this.state.numExperienceSubforms; i++) {
-      experienceSubforms.push(<ExperienceSubform number={i} key={i} />);
+      experienceSubforms.push(
+        <ExperienceSubform
+          number={i}
+          key={i}
+          onSubmit={this.handleExperienceSubmission}
+        />
+      );
     };
 
     return (

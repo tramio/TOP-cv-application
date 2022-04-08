@@ -100,10 +100,10 @@ class ExperienceSubform extends Component {
           onChange={this.handleDescriptionChange}
           value={this.state.description}
         />
+        <button onClick={() => this.props.onSubmit(this.state.experience, this.state.number)}>OK</button>
       </div>
     )
   }
-
 }
 
 export default ExperienceSubform;
