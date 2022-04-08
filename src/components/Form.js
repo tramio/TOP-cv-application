@@ -12,7 +12,7 @@ class Form extends Component {
       postalAddress: "",
       email: "",
       phone: "",
-      data: {},
+      personalia: {},
       isSubmitted: "",
       numExperienceSubforms: 0,
       experiences: [],
@@ -21,31 +21,30 @@ class Form extends Component {
   handleFirstNameChange = (value) => {
     this.setState({
       firstName: value,
-    });
+    }, this.setPersonalia);
   }
   handleLastNameChange = (value) => {
     this.setState({
       lastName: value,
-    });
+    }, this.setPersonalia);
   }
   handlePostalAddressChange = (value) => {
     this.setState({
       postalAddress: value,
-    });
+    }, this.setPersonalia);
   }
   handleEmailChange = (value) => {
     this.setState({
       email: value,
-    });
+    }, this.setPersonalia);
   }
   handlePhoneChange = (value) => {
     this.setState({
       phone: value,
-    });
+    }, this.setPersonalia);
   }
-  handleFormSubmission = (e) => {
-    e.preventDefault();
-    let formData = {
+  setPersonalia = () => {
+    let data = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       postalAddress: this.state.postalAddress,
@@ -53,8 +52,8 @@ class Form extends Component {
       phone: this.state.phone,
     };
     this.setState({
-      data: formData,
-    }, () => this.props.onSubmit(this.state.data));
+      personalia: data,
+    }, () => this.props.onSubmit(this.state.personalia));
   }
   addExperience = () => {
     this.setState({
@@ -83,7 +82,7 @@ class Form extends Component {
     };
 
     return (
-      <form onSubmit={this.handleFormSubmission}>
+      <form>
         <h1>Let's build a resume!</h1>
         <fieldset id="form-personalia">
           <legend>Personalia</legend>
@@ -136,12 +135,11 @@ class Form extends Component {
           </ul>
         </fieldset>
         <fieldset id="form-experience">
-        <legend>Professional experience</legend>
+          <legend>Professional experience</legend>
           {experienceSubforms}
           <button id="add-experience-btn" type="button" onClick={this.addExperience}>
           Add</button>
         </fieldset>
-        <button type="submit">Submit</button>
       </form>
     );
   }
