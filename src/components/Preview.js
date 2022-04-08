@@ -17,8 +17,8 @@ class Preview extends Component {
         <div id="preview-personalia">
           <h1 className="name">{firstName} {lastName}</h1>
           <p>📌 {postalAddress}</p>
-          <p>📞 {phone}</p>
           <p>📧 {email}</p>
+          <p>📞 {phone}</p>
         </div>
         <div id="experience">
           <h1>Experience</h1>
