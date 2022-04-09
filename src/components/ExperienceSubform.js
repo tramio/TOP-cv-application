@@ -22,6 +22,7 @@ class ExperienceSubform extends Component {
       organization: this.state.organization,
       position: this.state.position,
       description: this.state.description,
+      number: this.state.number,
     };
     this.setState({
       experience: formData,

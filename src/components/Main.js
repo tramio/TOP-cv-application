@@ -26,9 +26,15 @@ class Main extends Component {
   render() {
     return (
       <main>
-        <Form onSubmit={this.getPersonalia} onExperienceChange={this.getExperiences}/>
+        <Form
+          onSubmit={this.getPersonalia}
+          onExperienceChange={this.getExperiences}
+        />
         <div className="preview-container">
-          <Preview personalia={this.state.personalia}/>
+          <Preview
+            personalia={this.state.personalia}
+            experiences={this.state.experiences}
+          />
         </div>
       </main>
     );

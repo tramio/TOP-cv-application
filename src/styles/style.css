@@ -86,7 +86,7 @@ h1 {
   }
 
 /* EXPERIENCE PREVIEW */
-  #experience > * {
+  #preview-experiences > * {
     margin-top: 1rem;
   }
 
@@ -100,15 +100,13 @@ h1 {
   }
   .station-date {
     width: 5rem;
+    color: var(--color-1);
   }
   .station-description {
     width: 100%;
   }
-  .station h2 {
+  .station-preview h2 {
     font-weight: 600;
-  }
-  .station-date {
-    color: var(--color-1);
   }
   .description {
     margin-left: 1rem;
