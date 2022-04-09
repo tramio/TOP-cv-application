@@ -7,22 +7,28 @@ class Main extends Component {
     super();
 
     this.state = {
-      data: {},
+      personalia: {},
+      experiences: [],
     }
   }
 
-  handleFormSubmission = (formData) => {
+  getPersonalia = (data) => {
     this.setState({
-      data: formData,
+      personalia: data,
+    });
+  }
+  getExperiences = (data) => {
+    this.setState({
+      experiences: data,
     });
   }
 
   render() {
     return (
       <main>
-        <Form onSubmit={this.handleFormSubmission} />
+        <Form onSubmit={this.getPersonalia} onExperienceChange={this.getExperiences}/>
         <div className="preview-container">
-          <Preview data={this.state.data}/>
+          <Preview personalia={this.state.personalia}/>
         </div>
       </main>
     );

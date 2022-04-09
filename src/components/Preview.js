@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Preview extends Component {
   render() {
     const {
-      data: {
+      personalia: {
         firstName,
         lastName,
         postalAddress,

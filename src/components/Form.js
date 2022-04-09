@@ -60,12 +60,15 @@ class Form extends Component {
       numExperienceSubforms: this.state.numExperienceSubforms + 1
     });
   }
+  liftExperiencesUp = () => {
+    this.props.onExperienceChange(this.state.experiences);
+  }
   handleExperienceSubmission = (experience, key) => {
     let newArray = this.state.experiences.slice();
     newArray[key] = experience;
     this.setState({
       experiences: newArray,
-    });
+    }, () => this.liftExperiencesUp());
   }
   
   render() {
