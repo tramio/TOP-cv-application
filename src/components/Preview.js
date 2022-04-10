@@ -12,6 +12,8 @@ class Preview extends Component {
       }
     } = this.props;
     const { experiences } = this.props;
+    const { education } = this.props;
+
     return (
 
       <div id="preview">
@@ -24,6 +26,24 @@ class Preview extends Component {
         <div id="preview-experiences">
         <h1>Experience</h1>
           {experiences.map((experience) => {
+            return (
+              <div className="station-preview">
+                <div className="station-date">
+                  <p>{experience.startDate}</p>
+                  <p>{experience.endDate}</p>
+                </div>
+                <div className="station-description">
+                  <h2>{experience.organization}</h2>
+                  <p className="role">{experience.position}</p>
+                  <p className="description">{experience.description}</p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+        <div id="preview-education">
+        <h1>Education</h1>
+          {education.map((experience) => {
             return (
               <div className="station-preview">
                 <div className="station-date">

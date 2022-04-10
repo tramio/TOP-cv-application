@@ -76,28 +76,28 @@ class ExperienceSubform extends Component {
         />
         <Field
           inputId={"organization-" + this.state.number}
-          actualLabel="Organization"
+          actualLabel={this.props.organizationLabel}
           type="text"
           name={"organization-" + this.state.number}
-          placeholder="A great company"
+          placeholder={this.props.organizationPlaceholder}
           onChange={this.handleOrganizationChange}
           value={this.state.organization}
         />
         <Field
           inputId={"position-" + this.state.number}
-          actualLabel="Position"
+          actualLabel={this.props.positionLabel}
           type="text"
           name={"position-" + this.state.number}
-          placeholder="Junior Project Manager"
+          placeholder={this.props.positionPlaceholder}
           onChange={this.handlePositionChange}
           value={this.state.position}
         />
         <Field
           inputId={"description-" + this.state.number}
-          actualLabel="Description"
+          actualLabel={this.props.descriptionLabel}
           type="text"
           name={"description-" + this.state.number}
-          placeholder="Managed a lot of projets, drank a lot of coffee..."
+          placeholder={this.props.descriptionPlaceholder}
           onChange={this.handleDescriptionChange}
           value={this.state.description}
         />

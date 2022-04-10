@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Field from "./CVelements/Field";
-import ExperienceSubform from "./ExperienceSubform";
+import StationSubform from "./StationSubform";
 
 class Form extends Component {
   constructor(props) {
@@ -16,6 +16,8 @@ class Form extends Component {
       isSubmitted: "",
       numExperienceSubforms: 0,
       experiences: [],
+      numEducationSubforms: 0,
+      education: [],
     }
   }
   handleFirstNameChange = (value) => {
@@ -60,8 +62,16 @@ class Form extends Component {
       numExperienceSubforms: this.state.numExperienceSubforms + 1
     });
   }
+  addEducation = () => {
+    this.setState({
+      numEducationSubforms: this.state.numEducationSubforms + 1
+    });
+  }
   liftExperiencesUp = () => {
     this.props.onExperienceChange(this.state.experiences);
+  }
+  liftEducationUp = () => {
+    this.props.onEducationChange(this.state.education);
   }
   handleExperienceSubmission = (experience, key) => {
     let newArray = this.state.experiences.slice();
@@ -70,16 +80,47 @@ class Form extends Component {
       experiences: newArray,
     }, () => this.liftExperiencesUp());
   }
+  handleEducationSubmission = (education, key) => {
+    let newArray = this.state.education.slice();
+    newArray[key] = education;
+    this.setState({
+      education: newArray,
+    }, () => this.liftEducationUp());
+  }
   
   render() {
     const experienceSubforms = [];
 
     for (let i = 0; i < this.state.numExperienceSubforms; i++) {
       experienceSubforms.push(
-        <ExperienceSubform
+        <StationSubform
           number={i}
           key={i}
           onSubmit={this.handleExperienceSubmission}
+          organizationLabel="Organization"
+          organizationPlaceholder="Allsafe Cybersecurity"
+          positionLabel="Position"
+          positionPlaceholder="Cybersecurity Engineer"
+          descriptionLabel="Description"
+          descriptionPlaceholder="Computer repair with a smile!"
+        />
+      );
+    };
+
+    const educationSubforms = [];
+
+    for (let i = 0; i < this.state.numEducationSubforms; i++) {
+      educationSubforms.push(
+        <StationSubform
+          number={i}
+          key={i}
+          onSubmit={this.handleEducationSubmission}
+          organizationLabel="Institution"
+          organizationPlaceholder="Rutgers University, New Jersey"
+          positionLabel="Major"
+          positionPlaceholder="BSc in Computer Science"
+          descriptionLabel="Description"
+          descriptionPlaceholder="Programmation with a smile!"
         />
       );
     };
@@ -141,6 +182,12 @@ class Form extends Component {
           <legend>Professional experience</legend>
           {experienceSubforms}
           <button id="add-experience-btn" type="button" onClick={this.addExperience}>
+          Add</button>
+        </fieldset>
+        <fieldset id="form-education">
+          <legend>Education</legend>
+          {educationSubforms}
+          <button id="add-education-btn" type="button" onClick={this.addEducation}>
           Add</button>
         </fieldset>
       </form>
